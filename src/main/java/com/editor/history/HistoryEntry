@@ -1,0 +1,21 @@
+package com.editor.history;
+
+import com.editor.commands.Command;
+import com.editor.model.Memento;
+
+public class HistoryEntry {
+    private final Command command;
+    private final Memento memento;
+
+    public HistoryEntry(Command command, Memento memento) {
+        this.command = command;
+        this.memento = memento;
+    }
+
+    public Command getCommand() { return command; }
+    public Memento getMemento() { return memento; }
+
+    public String getLabel() {
+        return "[" + command.getUserId() + "] " + command.getDescription();
+    }
+}
